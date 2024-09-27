@@ -1,0 +1,13 @@
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .feature-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .feature-icon {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+  }

@@ -1,0 +1,67 @@
+<section class="h-100 gradient-custom">
+  <div class="container py-4 h-100">
+    <div class="row d-flex justify-content-center align-items-start h-100">
+      <div class="col-lg-10 col-xl-8">
+
+
+        <div class="card mb-3" *ngFor="let order of orders" style="border-radius: 10px;">
+          
+          <div class="card-header px-3 py-3 d-flex justify-content-between align-items-center">
+            <h6 class="mb-0 text-muted">Order Number: {{ order.orderId }}</h6>
+            <small class="text-muted">Date: {{ order.date ? (order.date | date: 'mediumDate') : 'N/A' }}</small>
+          </div>
+
+          
+          <div *ngIf="order.lineitems && order.lineitems.length > 0" class="card-body p-2">
+            <div class="card shadow-0 border-0 mb-3" *ngFor="let item of order.lineitems">
+              <div class="card-body p-2">
+                <div class="row">
+                  <div class="col-md-2">
+                    <img src="https://localhost:7185/{{ item.product?.filePath }}"class="img-fluid" alt="Product Image">
+                  </div>
+                  <div class="col-md-7">
+                    <p class="mb-1 fw-bold">{{ item.product?.name || 'No Name' }}</p>
+                    <p class="mb-1 text-muted small">{{ item.product?.category || 'No Category' }}, {{
+                      item.product?.subCategory || 'No Subcategory' }}</p>
+
+                    <p class="mb-0 text-muted small">{{ item.product?.description || 'N/A' }}</p>
+                    <p class="mb-0 text-muted small">Qty: {{ item.quantity || 'N/A' }}</p>
+                  </div>
+                  <div class="col-md-3 text-end">
+                    <p class="mb-1 fw-bold">${{ item.lineItemPrice || 0 }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message for no items -->
+          <div *ngIf="!order.lineitems || order.lineitems.length === 0" class="card-body p-2 text-center">
+            <p class="text-muted">No items found for this order.</p>
+          </div>
+
+          <!-- Order Summary -->
+          <div class="card-footer bg-white px-3 py-2 d-flex justify-content-between align-items-center">
+            <div>
+              <small class="text-muted">Receipt Voucher: {{ order.receiptVoucher || 'N/A' }}</small>
+            </div>
+            <div class="d-flex align-items-center">
+              <!-- Order Status Button -->
+              <span class="badge px-2 py-1 me-3" [ngClass]="{
+                    'bg-danger': order.statusId === 1005, 
+                    'bg-warning': order.statusId === 1004, 
+                    'bg-success': order.statusId === 1003
+                  }" style="border-radius: 12px; font-size: 12px;">
+                {{ order.statusId === 1003 ? 'Delivered' : order.statusId === 1004 ? 'In Process' :  order.statusId === 1006 ? 'Active' : 'Cancelled' }}
+              </span>
+              <div>
+                <span class="text-muted me-2">Total Paid:</span>
+                <span class="fw-bold">${{ order.totalPrice || 0 }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,144 @@
+/* Product Card Layout */
+.container {
+    max-width: 1140px;
+}
+
+.horizontal-card {
+    max-width: 900px; /* Adjust width as needed */
+    width: 100%; /* Ensure it takes up available space */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the card */
+}
+
+.horizontal-card .card-body {
+    padding: 20px;
+}
+
+.horizontal-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.horizontal-card .price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.horizontal-card .price-details {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.horizontal-card .description {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.horizontal-card .info {
+    font-weight: bold;
+    color: #333;
+}
+
+.horizontal-card .delivery {
+    font-size: 0.9rem;
+    color: #28a745;
+    margin: 5px 0;
+}
+
+.horizontal-card .rating {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.horizontal-card .btn-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.horizontal-card .btn-dark:hover {
+    background-color: #23272b;
+    border-color: #1d2124;
+}
+
+.horizontal-card .img-fluid {
+    max-height: 100%;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.search-card{
+    margin-top: 105px;
+}
+
+.image-column img{
+    height: 80%;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-left: 2px;
+}
+
+.upload-container {
+    position: relative;
+    display: inline-block;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-label:hover {
+    background-color: #e0e0e0;
+}
+
+.remove-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.imgebtn{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100px;
+}
+
+.upl{
+    margin-left: 125px;
+}

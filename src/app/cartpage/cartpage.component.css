@@ -1,0 +1,103 @@
+.stepper-container {
+    width: 100%;
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 140px;
+  }
+  
+  .stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+  }
+  
+  .line {
+    flex: 1;
+    height: 3px;
+    background: #ddd;
+    position: relative;
+    top: -10px; /* Aligns line with circles */
+  }
+  
+  .line.active {
+    background: #007bff;
+  }
+  
+  .step-circle {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    background: #ddd;
+    color: #fff;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  
+  .step.active .step-circle {
+    background-color: #007bff;
+  }
+  
+  .step p {
+    margin: 0;
+    font-size: 14px;
+    color: #aaa;
+    transition: color 0.3s;
+  }
+  
+  .step.active p {
+    color: #007bff;
+  }
+  
+  .checkmark {
+    font-size: 14px;
+  }
+  
+  .step-content {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .next-btn {
+    display: block;
+    margin-left: auto;
+    margin-top: 20px;
+  }
+  
+  @media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+    
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    
+    .card-registration .select-arrow {
+    top: 13px;
+    }

@@ -1,0 +1,110 @@
+<div class="maincontainer">
+    <div class="my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-8">
+                <div class="card shadow-lg" style="border-radius: 15px;">
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <!-- Form Section -->
+                            <div class="col-md-6">
+                                <h4 class="text-center mb-4"><i class="fa-solid fa-box"></i> Add Product</h4>
+
+                                <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                                    <!-- Product Image Field -->
+                                    <div class="mb-4">
+                                        <label for="productImage" class="form-label"><i class="fa-solid fa-image"></i>
+                                            Product Image</label>
+                                        <input type="file" id="productImage" class="form-control"
+                                            formControlName="productImage" />
+                                    </div>
+
+                                    <!-- Name Field -->
+                                    <div class="mb-4">
+                                        <label for="name" class="form-label"><i class="fa-solid fa-tag"></i> Product Name</label>
+                                        <input type="text" id="name" class="form-control" formControlName="name" placeholder="Product Name" />
+                                        <small class="validatealert" *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched && !(productForm.get('name')?.dirty)">*Name is required</small>
+                                        <small class="validatealert" *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.dirty">*Enter a Valid Name</small>
+                                    </div>
+
+                                    <!-- Description Field -->
+                                    <div class="mb-4">
+                                        <label for="description" class="form-label"><i class="fa-solid fa-pencil-alt"></i> Description</label>
+                                        <textarea id="description" class="form-control" formControlName="description"
+                                            rows="3" placeholder="Product Description"></textarea>
+                                            <small class="validatealert" *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched && !(productForm.get('description')?.dirty)">*Description is required</small>
+                                            <small class="validatealert" *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.dirty">*Enter a Valid Description</small>
+                                    </div>
+
+                                    <!-- Unit Price Field -->
+                                    <div class="mb-4">
+                                        <label for="unitPrice" class="form-label"><i class="fa-solid fa-dollar-sign"></i> Unit Price</label>
+                                        <input type="number" id="unitPrice" class="form-control" formControlName="unitPrice" placeholder="Unit Price" />
+                                        <small class="validatealert" *ngIf="productForm.get('unitPrice')?.invalid && productForm.get('unitPrice')?.touched && !(productForm.get('unitPrice')?.dirty)">*Unit Price is required</small>
+                                        <small class="validatealert" *ngIf="productForm.get('unitPrice')?.invalid && productForm.get('unitPrice')?.dirty">*Enter a Valid Unit Price</small>
+                                    </div>
+
+                                    <!-- Quantity Field -->
+                                    <div class="mb-4">
+                                        <label for="quantity" class="form-label"><i class="fa-solid fa-cube"></i> Quantity</label>
+                                        <input type="number" id="quantity" class="form-control" formControlName="quantity" placeholder="Quantity" />
+                                        <small class="validatealert" *ngIf="productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched && !(productForm.get('quantity')?.dirty)">*Quantity is required</small>
+                                        <small class="validatealert" *ngIf="productForm.get('quantity')?.invalid && productForm.get('quantity')?.dirty">*Enter a Valid Quantity</small>
+                                    </div>
+
+                                    <!-- Category Field -->
+                                    <div class="mb-4">
+                                        <label for="category" class="form-label"><i class="fa-solid fa-list"></i>
+                                            Category</label>
+                                        <select id="category" class="form-select" formControlName="category">
+                                            <option value="">Select Category</option>
+                                            <option value="Men-Cloth">Men-Cloth</option>
+                                            <option value="furniture">Furniture</option>
+                                            <option value="clothing">Clothing</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- SubCategory Field -->
+                                    <div class="mb-4">
+                                        <label for="subcategory" class="form-label"><i class="fa-solid fa-list-ul"></i>
+                                            SubCategory</label>
+                                        <select id="subcategory" class="form-select" formControlName="subcategory">
+                                            <option value="">Select SubCategory</option>
+                                            <option value="T-Shirt">T-Shirt</option>
+                                            <option value="Casual-Shirt">Casual-Shirt</option>
+                                            <option value="Sherwani">Sherwani</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Submit Button -->
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-dark" [disabled]="productForm.invalid"><i
+                                                class="fa-solid fa-save"></i> Save Product</button>
+                                    </div>
+                                </form>
+                            </div>
+
+
+
+                            <!-- Excel Upload Section -->
+                            <div class="col-md-6 d-flex align-items-center">
+                                <form (ngSubmit)="onUpload()" enctype="multipart/form-data">
+                                    <div class="text-center w-100">
+                                        <h4 class="mb-4"><i class="fa-solid fa-file-excel"></i> Upload Products via
+                                            Excel
+                                        </h4>
+                                        <p class="mb-4">Upload an Excel file to add multiple products at once. Each line
+                                            in the file should contain product details.</p>
+                                        <input type="file" class="form-control" id="excelUpload"
+                                            (change)="onFileChange($event)" accept=".xlsx, .xls" />
+                                        <button class="btn btn-success mt-3" type="submit"><i class="fa-solid fa-upload"></i> Upload
+                                            Excel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

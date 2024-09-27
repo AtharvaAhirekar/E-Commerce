@@ -1,0 +1,110 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            <div class="sidebar">
+                <h5>Filters</h5>
+                <hr>
+                <div class="filter-section">
+                    <h6>Price</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <input type="radio" id="price0" (change)="onPriceFilterChange(null)" [checked]="priceFilter === null">
+                            <label class="filter" for="price0">All Prices</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="radio" id="price1" (change)="onPriceFilterChange(500)" [checked]="priceFilter === 500">
+                            <label class="filter" for="price1">Under ₹500</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="radio" id="price2" (change)="onPriceFilterChange(1000)" [checked]="priceFilter === 1000">
+                            <label class="filter" for="price2">Under ₹1000</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="radio" id="price3" (change)="onPriceFilterChange(1500)" [checked]="priceFilter === 1500">
+                            <label class="filter" for="price3">Under ₹1500</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="radio" id="price4" (change)="onPriceFilterChange(2000)" [checked]="priceFilter === 2000">
+                            <label class="filter" for="price4">Under ₹2000</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="filter-section">
+                    <h6>Ratings</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <input type="checkbox" id="rating4">
+                            <label class="filter" for="rating4">4★ & above</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="checkbox" id="rating3">
+                            <label class="filter" for="rating3">3★ & above</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="filter-section">
+                    <h6>Brands</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <input type="checkbox" id="brand1">
+                            <label class="filter" for="brand1">Roadster</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="checkbox" id="brand2">
+                            <label class="filter" for="brand2">macmerise</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="checkbox" id="brand3">
+                            <label class="filter" for="brand2">Friskers</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="checkbox" id="brand4">
+                            <label class="filter" for="brand2">Tommy Hilfiger</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Listing -->
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3" *ngFor="let product of products">
+                    <div class="card product-card">
+                        <div id="carouselExampleControls{{product.id}}" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div>
+                                    <img [src]="product.filePath.startsWith('http') ? product.filePath : 'https://localhost:7185/' + product.filePath" class="d-block w-100">
+                                </div>
+                            </div>
+                            <button class="btn-favorite" (click)="toggleFavorite(product)">
+                                <i [ngClass]="favoriteProductIds.has(product.productId) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">{{ product.name }}</h6>
+                            <p class="price">₹{{ product.unitPrice }} <span class="price-details">onwards</span></p>
+                            <hr>
+                            <p class="description">{{product.description}}</p>
+                            <p class="delivery">Free Delivery</p>
+                            <div class="rating">
+                                <span class="badge bg-success">{{ 4.3 }} ★</span> {{ 1080 }}
+                                Reviews
+                            </div>
+                            <!-- Add to Cart Button -->
+                            <button class="btn btn-primary mt-2 w-100" (click)="addToCart(product)" >Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--             
+            <app-pagination
+            [totalItems]="totalProducts"
+            [itemsPerPage]="itemsPerPage"
+            (pageChange)="onPageChange($event)">
+          </app-pagination> -->
+
+        </div>
+    </div>
+</div>

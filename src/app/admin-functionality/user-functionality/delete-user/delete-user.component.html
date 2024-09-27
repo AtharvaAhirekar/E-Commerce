@@ -1,0 +1,131 @@
+<div class="search-card container card shadow-sm p-4 bg-white rounded">
+    <form [formGroup]="searchForm" (ngSubmit)="searchData()">
+        <div class="search-section">
+            <div class="mb-4 w-30">
+                <label for="productName" class="form-label">
+                    <i class="fa-solid fa-user"></i> Username
+                </label>
+                <input id="productName" type="text" class="form-control" formControlName="name">
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-primary mt-3" type="submit" [disabled]="searchForm.invalid">
+                <i class="fa-solid fa-search"></i> Search
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="container" *ngIf="gotUser">
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="mt-5"
+                        width="150px"
+                        [src]= "profileForm.value.filePath || 'https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg'">
+
+                        <span class="font-weight-bold">{{profileForm.value.name || "loremispum"}}</span>
+                        <span class="text-black-50">{{profileForm.value.email || "edogarumail.com.my" }}</span>
+                        <span>+91 {{profileForm.value.phoneNumber || "1234567891"}}</span>
+                </div>
+            </div>
+            <div class="col-md-8 border-right">
+                <div class="p-3 py-5">
+                    <form [formGroup]="profileForm">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">User Profile</h4>
+                        </div>
+
+                        <div class="row mt-2">
+
+                            <div class="col-md-6">
+                                <label class="labels">Name</label>
+                                <input type="text" class="form-control" formControlName="name" placeholder="first name" readonly>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="labels">Surname</label>
+                                <input type="text" class="form-control" [value]="profileForm.value.name" placeholder="surname" readonly>
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+
+                                <label class="labels">Mobile Number</label>
+                                <input type="text" formControlName="phoneNumber" class="form-control"
+                                    placeholder="enter phone number" readonly>
+
+                            </div>
+
+                            <div class="col-md-12">
+
+                                <label class="labels">Address Line 1</label>
+                                <input type="text" formControlName="address" class="form-control"
+                                    placeholder="enter address line 1" readonly>
+
+                            </div>
+
+
+                            <div class="col-md-12">
+
+                                <label class="labels">Address Line 2</label>
+                                <input type="text" class="form-control" placeholder="enter address line 2" [value]="profileForm.value.address" readonly>
+
+                            </div>
+
+                            <div class="col-md-12">
+
+                                <label class="labels">Postcode</label>
+                                <input type="text" class="form-control" placeholder="enter address line 2" [value]="profileForm.value.address" readonly>
+
+                            </div>
+                            <div class="col-md-12">
+
+                                <label class="labels">State</label>
+                                <input type="text" class="form-control" placeholder="enter address line 2" value="Maharashtra" readonly>
+
+                            </div>
+                            <div class="col-md-12">
+
+                                <label class="labels">Area</label>
+                                <input type="text" class="form-control" placeholder="enter address line 2" value="Somewhere" readonly>
+
+                            </div>
+
+                            <div class="col-md-12">
+
+                                <label class="labels">Email ID</label>
+                                <input type="text" class="form-control" formControlName="email"
+                                    placeholder="enter email id" readonly>
+
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+
+                                <label class="labels">Country</label>
+                                <input type="text" class="form-control" placeholder="country" value="India" readonly>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <label class="labels">State/Region</label>
+                                <input type="text" class="form-control" placeholder="state" value="Maharashtra" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-primary profile-button" (click)="deleteUser()">Delete User</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container wishlist-container">
+    <h1 class="mb-4">Your Wishlist</h1>
+    <div class="card wishlist-card">
+        <div class="card-body">
+            <div *ngIf="products.length <= 0"  class="row align-items-center">
+                <img src="assets/emptywishlist.jpg" alt="" srcset="">
+            </div>
+            <div class="product-item" *ngFor="let item of products">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <img src="https://localhost:7185/{{ item.product?.filePath }}" class="img-fluid" alt="{{ item.product?.name }}">
+                    </div>
+                    <div class="col-md-3">
+                        <h5>{{ item.product?.name }}</h5>
+                        <p>{{ item.product?.description }}</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="price">{{ item.product?.unitPrice | currency }}</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="quantity">Available: {{ item.product?.availableQuantity }}</p>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <button (click)="addToCart(item)" class="btn btn-success">
+                            Add to Cart
+                        </button>
+                        <button (click)="removeFromWishlist(item.id)" class="btn btn-link text-danger">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

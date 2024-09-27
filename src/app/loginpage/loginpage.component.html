@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+            <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5">
+                    <div class="row justify-content-center">
+                        <!-- Form Section -->
+                        <div class="col-md-10 col-lg-6 col-xl-5 order-1 order-lg-2">
+                            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
+
+                            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mx-1 mx-md-4">
+
+                                <!-- Username Field -->
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                    <div class="form-outline flex-fill mb-0">
+                                        <input type="text" id="username" class="form-control" formControlName="username" placeholder="Username" />
+                                        <small class="validatealert" *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched && !(loginForm.get('username')?.dirty)">*Username is required</small>
+                                        <small class="validatealert" *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.dirty">*Enter a Valid Username</small>
+                                    </div>
+                                </div>
+
+                                <!-- Password Field -->
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                    <div class="form-outline flex-fill mb-0">
+                                        <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password" />
+                                        <small class="validatealert" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched && !(loginForm.get('password')?.dirty)">*Password is required</small>
+                                        <small class="validatealert" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.dirty">*Enter a Valid Password</small>
+                                    </div>
+                                </div>
+
+                                <!-- reCAPTCHA Field -->
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                    <ngx-recaptcha2 formControlName="captchaToken" [siteKey]="'6LeENDQqAAAAAP5OQ_AxMnlaSHMw7tCCTuv3rXWF'"></ngx-recaptcha2>
+                                  </div>
+
+                                <!-- Remember Me and Forgot Password -->
+                                <div class="d-flex justify-content-between mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" formControlName="rememberMe"
+                                            id="rememberMe" />
+                                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                                    </div>
+                                    <a routerLink="/forgot-password" class="text-muted">Forgot password?</a>
+                                </div>
+
+                                <!-- Login Button -->
+                                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                    <button type="submit" class="btn btn-primary btn-lg"
+                                        [disabled]="loginForm.invalid">Login</button>
+                                </div>
+
+                                <!-- Register Link -->
+                                <div class="text-center">
+                                    <p class="text-muted">Don't have an account? <a routerLink="/signup"
+                                            class="text-danger">Register</a></p>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Image Section -->
+                        <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-2 order-lg-1">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                                class="img-fluid" alt="Sample image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

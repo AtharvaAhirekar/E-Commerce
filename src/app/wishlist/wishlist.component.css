@@ -1,0 +1,35 @@
+.wishlist-container {
+    padding: 20px;
+}
+
+.wishlist-card {
+    border: none;
+}
+
+.product-item {
+    padding: 15px;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.price {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.quantity {
+    font-size: 1em;
+    color: #666;
+}
+
+.btn-link {
+    font-size: 1.5em;
+}
+
+.btn-success {
+    margin-right: 50px;
+}

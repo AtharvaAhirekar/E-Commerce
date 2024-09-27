@@ -1,0 +1,25 @@
+.maincontainer{
+    margin-top: 105px;
+}
+.card {
+    border-radius: 15px;
+}
+.form-label {
+    font-weight: 500;
+}
+.form-control {
+    border-radius: 10px;
+}
+.form-select {
+    border-radius: 10px;
+}
+.btn {
+    border-radius: 10px;
+}
+
+input.ng-invalid.ng-touched{
+    border: rgb(254, 122, 122) 2px solid;
+}
+.validatealert{
+    color: red;
+}

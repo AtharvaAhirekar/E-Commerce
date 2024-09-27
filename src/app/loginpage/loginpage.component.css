@@ -1,0 +1,10 @@
+.container{
+    margin-top: 140px
+}
+
+input.ng-invalid.ng-touched{
+    border: rgb(254, 122, 122) 2px solid;
+}
+.validatealert{
+    color: red;
+}

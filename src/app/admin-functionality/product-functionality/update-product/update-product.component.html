@@ -1,0 +1,133 @@
+<!-- Search Form -->
+<div class="search-card container card shadow-sm p-4 bg-white rounded">
+    <form [formGroup]="searchForm" (ngSubmit)="searchData()">
+        <div class="search-section">
+            <div class="mb-4 w-30">
+                <label for="category" class="form-label">
+                    <i class="fa-solid fa-list"></i> Category
+                </label>
+                <select id="category" class="form-select" formControlName="category">
+                    <option value="">Select Category</option>
+                    <option value="Men-Cloth">Men-Cloth</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="clothing">Clothing</option>
+                </select>
+            </div>
+
+            <div class="mb-4 w-30">
+                <label for="subcategory" class="form-label">
+                    <i class="fa-solid fa-list-ul"></i> SubCategory
+                </label>
+                <select id="subcategory" class="form-select" formControlName="subcategory">
+                    <option value="">Select SubCategory</option>
+                    <option value="T-Shirt">T-Shirt</option>
+                    <option value="Casual-Shirt">Casual-Shirt</option>
+                    <option value="Sherwani">Sherwani</option>
+                </select>
+            </div>
+
+            <div class="mb-4 w-30">
+                <label for="productName" class="form-label">
+                    <i class="fa-solid fa-box"></i> Product Name
+                </label>
+                <input id="productName" type="text" class="form-control" formControlName="name">
+            </div>
+
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-primary mt-3" type="submit" [disabled]="searchForm.invalid">
+                <i class="fa-solid fa-search"></i> Search
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Centered Product Card as Form -->
+<!-- Product Card Form -->
+<div class="container d-flex justify-content-center mt-5" *ngIf="product != null">
+    <form [formGroup]="updateForm" (ngSubmit)="updateProduct()">
+        <div class="card product-card shadow-sm bg-white rounded">
+            <div class="row g-0">
+                <!-- Image Column -->
+                <div class="col-md-4 image-column">
+                    <img [src]="updateForm.value.filePath" class="img-fluid rounded-start"
+                        alt="Product Image">
+
+                        <div class="mt-3 d-flex gap-2 upl">
+                            <!-- Upload Image -->
+                                <div class="upload-container position-relative">
+                                    <input type="file" id="upload" class="file-input" (change)="onUploadImage($event)">
+                                    <label for="upload" class="upload-label">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </label>
+                                </div>
+                        </div>
+
+                </div>
+                <!-- Form Column -->
+                <div class="col-md-8 form-column">
+                    <div class="card-body">
+                        <!-- Product Name and Price Row -->
+                        <div class="form-group mb-3">
+                            <label for="name" class="form-label">Product Name</label>
+                            <input id="name" type="text" class="form-control" formControlName="name">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="unitPrice" class="form-label">Price</label>
+                            <input id="unitPrice" type="number" class="form-control" formControlName="unitPrice">
+                        </div>
+
+                        <!-- Description Row -->
+                        <div class="form-group mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea id="description" class="form-control" formControlName="description"></textarea>
+                        </div>
+
+                        <!-- Category and Subcategory Row -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="category" class="form-label">Category</label>
+                                    <select id="category" class="form-select" formControlName="category">
+                                        <option value="">Select Category</option>
+                                        <option value="Men-Cloth">Men-Cloth</option>
+                                        <option value="Furniture">Furniture</option>
+                                        <option value="Clothing">Clothing</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="subcategory" class="form-label">Subcategory</label>
+                                    <select id="subcategory" class="form-select" formControlName="subCategory">
+                                        <option value="">Select Subcategory</option>
+                                        <option value="T-Shirt">T-Shirt</option>
+                                        <option value="Casual-Shirt">Casual-Shirt</option>
+                                        <option value="Sherwani">Sherwani</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quantity Row -->
+                        <div class="form-group mb-3">
+                            <label for="availableQuantity" class="form-label">Quantity</label>
+                            <input id="availableQuantity" type="number" class="form-control"
+                                formControlName="availableQuantity">
+                        </div>
+
+                        <!-- Update Button -->
+                        <div class="text-center">
+                            <button class="btn btn-primary mt-3" type="submit"
+                                [disabled]="!(updateForm.dirty && updateForm.valid)">
+                                <i class="fa-solid fa-save"></i> Update Product
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,209 @@
+.navbar {
+    padding: 5px 0;
+    /* Adjust padding to reduce height */
+    /* margin: 5px; */
+    margin-top: 3px;
+    font-size: 14px;
+    background-color: #f8f9fa;
+    height: 75px;
+    /* Ensure navbar height is fixed */
+    display: flex;
+    align-items: center;
+    /* Center items vertically */
+}
+
+.container-fluid {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(21, 0, 0, 0.19);
+}
+
+.logo-image {
+    cursor: pointer;
+    max-height: 85px;
+    /* Limit the logo height */
+    width: auto;
+    /* Maintain aspect ratio */
+    object-fit: contain;
+    /* Scale the image while preserving aspect ratio */
+    margin-right: 20px;
+    /* Adjust gap between logo and nav items */
+    margin-left: 55px
+}
+
+.navbar-nav {
+    display: flex;
+    flex-grow: 1;
+    /* Allow nav items to take up remaining space */
+    margin-right: 20px;
+    /*Adjust space between nav items and form*/
+}
+
+.navbar-nav .nav-link {
+    padding: 8px 15px;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+.form-control {
+    width: 300px;
+    border-radius: 20px;
+}
+
+.profile-text {
+    font-size: 14px;
+    /* Adjust the size as needed */
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.btn-outline-dark,
+.btn-dark {
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.icon-section{
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+.custom-dropdown {
+    width: 250px;
+    /* Adjust width as needed */
+    padding: 10px 20px;
+}
+
+.custom-dropdown .dropdown-header {
+    font-weight: bold;
+    /* Replace with your desired color */
+}
+
+.men-header {
+    color: #ee5f73
+}
+
+.kid-header {
+    color: #f26a10
+}
+
+.women-header {
+    color: #fb56c1;
+}
+
+.furniture-header {
+    color: rgb(237, 145, 24);
+}
+
+.electronic-header {
+    color: #0db7af;
+}
+
+.custom-dropdown .dropdown-item {
+    font-size: 14px;
+    /* Adjust font size as needed */
+}
+
+.dropdown-item:hover{
+    font-weight: 600;
+}
+
+.custom-dropdown .dropdown-divider {
+    margin: 10px 5px;
+}
+
+.icon-menu{
+    /* width: 260px;
+    padding-left: 0; */
+    width: 300px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: none;
+}
+
+.icon-header{
+    color: #333;
+}
+
+.login-btn{
+    margin-left: 18px;
+    padding: 8px 8px;
+    background-color : #ffffff;
+    border: 1px solid #cac8ca;
+    border-radius: 2px;
+    font-family: monospace;
+    font-weight: 200;
+    color: #ee5f73;
+}
+
+.login-btn:hover{
+    border: 1px solid #fb56c1;
+    background-color: #ee5f73;
+    color: white;
+}
+
+@media(max-width : 991px) {
+    .sidebar {
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(3px);
+        color: white;
+    }
+
+    .logo-image {
+        margin-left: 0px
+    }
+
+    .icon-section {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 18px;
+        /* Adjust the size of the icons */
+        margin: 10px 0;
+        /*Add margin between items*/
+    }
+
+    .fa-heart {
+        margin-left: 45px;
+    }
+
+    .icon-section i {
+        font-size: 20px;
+        /* Decrease icon size for smaller screens */
+        margin-right: 10px;
+        /* Space between the icon and the text */
+    }
+
+    .profile-text {
+        font-size: 14px;
+        /* Adjust the text size */
+        margin: 0;
+        /* Align the text with the icon */
+        color: white;
+    }
+
+    .nav-item {
+        justify-content: flex-start;
+        /* Align items to the left */
+        text-align: left;
+        /* Ensure text is left-aligned */
+    }
+
+    #navbarDropdown {
+        color: white;
+    }
+}

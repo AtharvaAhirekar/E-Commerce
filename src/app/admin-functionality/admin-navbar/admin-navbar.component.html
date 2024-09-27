@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+    <img src="assets/logo.png" alt="Logo" class="logo-image" routerLink="/admin">
+    <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Swabhav Shopify</h5>
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex">
+        <ul class="navbar-nav justify-content-start flex-grow-1">
+          <!-- Product Management -->
+          <li class="nav-item dropdown mx-2">
+            <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-boxes-stacked"></i> Product Management
+            </a>
+            <ul class="dropdown-menu custom-dropdown" aria-labelledby="productDropdown">
+              <li><a class="dropdown-item" routerLink="/admin/product/addproduct">Create Product</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/product/viewproducts">View Products</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/product/updateproduct">Update Product</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/product/deleteproduct">Delete Product</a></li>
+            </ul>
+          </li>
+
+          <!-- Order Management -->
+          <!-- <li class="nav-item dropdown mx-2">
+            <a class="nav-link dropdown-toggle" href="#" id="orderDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-clipboard-list"></i> Order Management
+            </a>
+            <ul class="dropdown-menu custom-dropdown" aria-labelledby="orderDropdown">
+              <li><a class="dropdown-item" routerLink="/admin/orders/create">Create Order</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/orders">View Orders</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/orders/update">Update Order</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/orders/delete">Delete Order</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/orders/track">Track Orders</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/orders/invoice">Generate Invoice</a></li>
+            </ul>
+          </li> -->
+
+          <!-- User Management -->
+          <li class="nav-item dropdown mx-2">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-users"></i> User Management
+            </a>
+            <ul class="dropdown-menu custom-dropdown" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item" routerLink="/admin/user/adduser">Add User</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/user/getuser">View Users</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/user/updateuser">Update User</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/user/deleteuser">Delete User</a></li>
+            </ul>
+          </li>
+
+
+        <!-- Settings Icon - Shifted to the Right -->
+
+          <li class="nav-item dropdown mx-2">
+            <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-gear"></i> Settings
+            </a>
+            <ul class="dropdown-menu custom-dropdown" aria-labelledby="settingsDropdown">
+              <li><a class="dropdown-item" routerLink="/login" (click)="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

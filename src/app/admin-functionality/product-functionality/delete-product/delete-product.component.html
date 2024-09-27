@@ -1,0 +1,72 @@
+<div class="container card shadow-sm p-4 bg-white rounded">
+    <!-- Search Form -->
+    <form [formGroup]="searchForm" (ngSubmit)="searchData()">
+        <div class="search-section">
+            <div class="mb-4 w-30">
+                <label for="category" class="form-label">
+                    <i class="fa-solid fa-list"></i> Category
+                </label>
+                <select id="category" class="form-select" formControlName="category">
+                    <option value="">Select Category</option>
+                    <option value="Men-Cloth">Men-Cloth</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="clothing">Clothing</option>
+                </select>
+            </div>
+
+            <div class="mb-4 w-30">
+                <label for="subcategory" class="form-label">
+                    <i class="fa-solid fa-list-ul"></i> SubCategory
+                </label>
+                <select id="subcategory" class="form-select" formControlName="subcategory">
+                    <option value="">Select SubCategory</option>
+                    <option value="T-Shirt">T-Shirt</option>
+                    <option value="Casual-Shirt">Casual-Shirt</option>
+                    <option value="Sherwani">Sherwani</option>
+                </select>
+            </div>
+
+            <div class="mb-4 w-30">
+                <label for="productName" class="form-label">
+                    <i class="fa-solid fa-box"></i> Product Name
+                </label>
+                <input id="productName" type="text" class="form-control" formControlName="name">
+            </div>
+
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-primary mt-3" type="submit" [disabled]="searchForm.invalid">
+                <i class="fa-solid fa-search"></i> Search
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Centered Product Card -->
+<div class="container d-flex justify-content-center mt-5" *ngIf="product!=null">
+    <div class="card horizontal-card shadow-sm bg-white rounded ">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h6 class="card-title">{{ product.name }}</h6>
+                    <p class="price">₹{{ product.unitPrice }} <span class="price-details">onwards</span></p>
+                    <hr>
+                    <p class="description">{{product.description}}</p>
+                    <p class="description"><span class="info">Category:</span> {{product.category}}</p>
+                    <p class="description"><span class="info">Subcategory:</span> {{product.subCategory}}</p>
+                    <p class="description"><span class="info">Quantity:</span> {{product.availableQuantity}}</p>
+                    <p class="delivery">Free Delivery</p>
+                    <div class="rating">
+                        <span class="badge bg-success">{{ 4.3 }} ★</span> {{ 1080 }} Reviews
+                    </div>
+                    <p class="description"><span class="info">Exists:</span> {{product.isActive?"Active":"Not Active"}}</p>
+                    <button class="btn btn-dark mt-2 w-100" (click)="deleteProduct()">Delete Product</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img [src]="'https://localhost:7185/'+product.filePath" class="img-fluid rounded-end" alt="Product Image">
+            </div>
+        </div>
+    </div>
+</div>
