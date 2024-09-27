@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # ECommerceApplication
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
@@ -28,4 +28,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 =======
 # E-Commerce-
->>>>>>> 036747fdd977805718ae286462503b8fd4488f3a
+
